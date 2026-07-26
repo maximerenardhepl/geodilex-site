@@ -198,25 +198,21 @@ a {
 }
 
 /*TITRE PRINCIPALE PAGE*/
+/*TITRE PRINCIPALE PAGE*/
 
 .hero-title {
-
     font-size: 60px;
-
     line-height: 1.15;
-
 }
 
-#hero-title{
-    #hero-title::after {
-        content: '|';
-        animation: blink 0.7s infinite;
-        }
+#hero-title::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
 
-        @keyframes blink {
-        0%, 50% { opacity: 1; }
-        51%, 100% { opacity: 0; }
-        }
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 
@@ -228,7 +224,7 @@ a {
 }
 
 .hero-visual img {
-  width: 110%;
+  width: 100%; /* au lieu de 110% */
   height: 100%;
   object-fit: cover;
   display: block;
@@ -628,3 +624,116 @@ processus
 
 }
 
+
+/* ===========================
+   RESPONSIVE - MOBILE
+=========================== */
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: .3s;
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    height: 70px;
+  }
+
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+    transition: max-height .35s ease;
+  }
+
+  .nav.is-open {
+    max-height: 400px;
+    padding: 20px 0;
+  }
+
+  .nav a {
+    padding: 14px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .header-actions .btn--primary {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .hero {
+    padding-top: 110px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-visual {
+    order: -1;
+    height: 260px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-text {
+    font-size: 17px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-badges {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid,
+  .why-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+}
