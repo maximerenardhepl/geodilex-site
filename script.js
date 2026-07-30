@@ -55,5 +55,5 @@ devisForm.addEventListener('submit', (e) => {
     `Nom : ${nom}\nEmail : ${email}\nTéléphone : ${tel || 'non renseigné'}\n\nProjet :\n${message}`
   );
 
-  window.location.href = `mailto:info@geodilex.be?subject=${sujet}&body=${corps}`;
+  window.location.href = `mailto:b.meurant@geodilex.be?subject=${sujet}&body=${corps}`;
 });
