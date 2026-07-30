@@ -1013,6 +1013,10 @@ figcaption {
 }
 
 @media (max-width: 480px) {
+
+    .hero-visual {
+    display: none;
+  }
   .hero-title {
     font-size: 30px;
   }
