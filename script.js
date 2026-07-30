@@ -55,5 +55,29 @@ devisForm.addEventListener('submit', (e) => {
     `Nom : ${nom}\nEmail : ${email}\nTéléphone : ${tel || 'non renseigné'}\n\nProjet :\n${message}`
   );
 
-  window.location.href = `mailto:b.meurant@geodilex.be?subject=${sujet}&body=${corps}`;
+  window.location.href = `mailto:info@geodilex.be?subject=${sujet}&body=${corps}`;
 });
+
+const track = document.getElementById('projectsTrack');
+const prevBtn = document.querySelector('.carousel-arrow--prev');
+const nextBtn = document.querySelector('.carousel-arrow--next');
+
+function scrollByCard(direction) {
+  const card = track.querySelector('.project-card');
+  const cardWidth = card.getBoundingClientRect().width;
+  const gap = 24;
+  track.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+}
+
+prevBtn.addEventListener('click', () => scrollByCard(-1));
+nextBtn.addEventListener('click', () => scrollByCard(1));
+
+function updateArrowState() {
+  const maxScroll = track.scrollWidth - track.clientWidth;
+  prevBtn.disabled = track.scrollLeft <= 0;
+  nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
+}
+
+track.addEventListener('scroll', updateArrowState);
+window.addEventListener('resize', updateArrowState);
+updateArrowState();
